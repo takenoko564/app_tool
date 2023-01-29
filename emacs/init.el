@@ -101,6 +101,6 @@
 ;; )
 
 (require 'multiple-cursors)
-(global-set-key (kbd "C-M-.") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-M-,") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-M-d") 'mc/mark-all-like-this)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-M-D") 'mc/mark-all-like-this)
