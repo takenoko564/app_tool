@@ -1,6 +1,3 @@
 {
-    "[verilog]": {
-        "editor.defaultFormatter": "ericsonj.verilogformat"
-        //"editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    "emacs-mcx.useMetaPrefixEscape": true
 }
