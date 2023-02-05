@@ -19,5 +19,20 @@
         "key": "ctrl+E",
         "command": "cursorLineEnd",
         "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+alt+d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "Key": "Escape %",
+        "Command": "Editor.Action.Startfindreplaceaction",
+        "When": "Textinputfocus"
     }
 ]
