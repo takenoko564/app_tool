@@ -1,0 +1,81 @@
+Option Explicit
+
+Const ResultSheetName As String = "Result"
+
+Sub TestFunc()
+    Dim i As Long
+    
+    Worksheets("tool").Select
+    
+    '-------------------------
+    'Get val
+    '-------------------------
+    
+    Dim TargetSheetName As String
+    TargetSheetName = Range("C3").Value
+    
+    '-------------------------
+    'Add sheet
+    '-------------------------
+    
+    For i = 1 To Sheets.Count
+        If Sheets(i).Name = ResultSheetName Then
+            Sheets(i).Delete
+            Exit For
+        End If
+    Next i
+    
+    Dim ResultSheet As Worksheet
+    Set ResultSheet = Worksheets.Add
+    ResultSheet.Name = "Result"
+    
+    '-------------------------
+    'Check sheet
+    '-------------------------
+    Dim CurVal As Long
+    Dim max As Long: max = 0
+    Dim min As Long: min = 999999
+    Dim sum As Long: sum = 0
+    For i = 1 To 65536
+        If Sheets(TargetSheetName).Cells(i, 1).Value = "" Then
+            Exit For
+        Else
+            CurVal = Sheets(TargetSheetName).Cells(i, 1).Value
+            If (max < CurVal) Then
+                max = CurVal
+            End If
+            If (min > CurVal) Then
+                min = CurVal
+            End If
+            sum = sum + CurVal
+        End If
+    Next i
+    
+    '-------------------------
+    'Type val
+    '-------------------------
+        
+    'ex1
+    Range("A1: F1").Select
+    Selection.Value = "-"
+    Selection.Interior.Color = RGB(0, 0, 0)
+    
+    'ex2
+    Range("A5:F5").Value = "-"
+    Range("A5:F5").Interior.Color = RGB(0, 0, 0)
+        
+    'ex3
+    Cells(2, 1).Value = "MAX"
+    Cells(2, 2).Value = max
+    Cells(3, 1).Value = "MIN"
+    Cells(3, 2).Value = min
+    Cells(4, 1).Value = "SUM"
+    Cells(4, 2).Value = sum
+    
+    '-------------------------
+    'Message Box
+    '-------------------------
+    
+    MsgBox ("Finish the macro.")
+
+End Sub
