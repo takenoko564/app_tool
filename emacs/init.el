@@ -1,4 +1,4 @@
-;; Packages ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Packages ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'package)
 (add-to-list 'package-archives '("melpa" ."https://melpa.org/packages/") t)
 (package-initialize) 
@@ -100,6 +100,8 @@
 ;; ;; If there is more than one, they won't work right.
 ;; )
 
+(setq load-path (cons "~/.emacs.d/elisp/cl-lib" load-path))
+(setq load-path (cons "~/.emacs.d/elisp/multiple-cursors" load-path))
 (require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
