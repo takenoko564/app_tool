@@ -164,7 +164,7 @@
     lisp-interaction-mode
     c-mode cc-mode c++-mode
     java-mode clojure-mode scala-mode
-    scheme-mode
+    scheme-mode verilog-mode
     ocaml-mode tuareg-mode
     perl-mode cperl-mode python-mode ruby-mode
     ecmascript-mode javascript-mode js-mode js2-mode php-mode css-mode

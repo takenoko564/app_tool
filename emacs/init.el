@@ -59,6 +59,8 @@
 (add-to-list 'auto-mode-alist '("\\.vams\\'" . verilog-mode))
 (add-hook 'verilog-mode-hook
   (lambda ()
+;    (setq-default ac-sources '(ac-source-verilog ac-source-words-in-same-mode-buffers))
+    (setq-default ac-sources (push 'ac-source-verilog ac-sources))
     (setq tab-width 2)
     (setq indent-tabs-mode nil)
     (setq verilog-indent-lists nil)
@@ -92,11 +94,18 @@
 (require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-M-D") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-!") 'mc/mark-all-like-this)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto-complete
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(setq load-path (cons "~/.emacs.d/elisp/popup" load-path)) ;; need newer than 1.4.0 ac
+(setq load-path (cons "~/.emacs.d/elisp/fuzzy" load-path)) ;; need newer than 1.4.0 ac
 (setq load-path (cons "~/.emacs.d/elisp/auto-complete" load-path))
 (require 'auto-complete)
+(require 'auto-complete-config) 
+(global-auto-complete-mode t)
+
+(setq load-path (cons "~/.emacs.d/elisp/auto-complete-config-verilog" load-path))
+(require 'auto-complete-config-verilog) 
