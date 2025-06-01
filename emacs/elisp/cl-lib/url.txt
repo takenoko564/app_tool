@@ -1,1 +1,0 @@
-http://elpa.gnu.org/packages/cl-lib.html
